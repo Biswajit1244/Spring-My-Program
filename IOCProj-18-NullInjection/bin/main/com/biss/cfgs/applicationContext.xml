@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="emp" class="com.biss.beans.EmployeeDetails">
+	<constructor-arg name="eName" value="Biss"/>
+	<constructor-arg name="addrs"><null/></constructor-arg>
+	<constructor-arg name="compName" value="Capgemin"/>
+	<constructor-arg name="salary" value="45556.45f"/>
+</bean>
+
+</beans>
