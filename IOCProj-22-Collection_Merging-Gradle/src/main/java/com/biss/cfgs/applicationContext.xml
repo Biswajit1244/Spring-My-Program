@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<bean id="Simplelaptop" class="com.biss.beans.Laptop">
+	<property name="spec">
+		<list>
+			<value>Keyboard</value>
+			<value>TouchPad</value>
+			<value>battery</value>
+			<value>motherboard</value>
+		</list>
+	</property>
+</bean>
+<bean id="AdvancedLaptop" class="com.biss.beans.Laptop" parent="Simplelaptop">
+	<property name="spec">
+		<list merge="true">
+			<value>fingerPrintScanner</value>
+			<value>lightKeyBoard</value>
+		</list>
+	</property>
+</bean>
+</beans>
