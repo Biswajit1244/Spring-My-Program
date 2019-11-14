@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="sysDate" class="java.util.Date"/>
+	<bean id="dob" class="java.util.Date">
+		<property name="year" value="96"/>
+		<property name="month" value="2"/>
+		<property name="date" value="29"/>
+	</bean>
+	<bean id="doj" class="java.util.Date">
+		<property name="year" value="120"/>
+		<property name="month" value="6"/>
+		<property name="date" value="6"/>
+	</bean>
+	<!-- Mark -->
+	<bean id="mark" class="com.biss.beans.ExamMark_Array">
+	<property name="marks">
+		<array>
+			<value>45</value>
+			<value>85</value>
+			<value>96</value>
+		</array>
+	</property>
+	<property name="date">
+		<list>
+			<ref bean="sysDate"/>
+			<ref bean="dob"/>
+			<ref bean="doj"/>
+		</list>
+	</property>
+	</bean>
+	<!-- Person info -->
+	<bean id="person" class="com.biss.beans.PersonInfo_List">
+		<property name="details">
+			<list>
+				<value>Biswa</value>
+				<value>MCA</value>
+				<value>9861760090</value>
+				<value>Bhadrak</value>
+			</list>
+		</property>
+		<property name="dates">
+		<list value-type="java.util.Date">
+			<ref bean="dob"/>
+			<ref bean="doj"/>
+		</list>
+		</property>
+	</bean>
+	<bean id="stud" class="com.biss.beans.Student_Set">
+		<property name="mobNo">
+			<set value-type="">
+				<value>9861556856</value>
+				<value>7978656566</value>
+				<value>7978222696</value>
+				<value>7978222696</value>
+			</set>
+		</property>
+		<property name="dates">
+		<set>
+			<ref bean="dob"/>
+			<ref bean="sysDate"/>
+		</set>
+		</property>
+	</bean>
+	<bean id="emp" class="com.biss.beans.EmployeeDetails">
+		<property name="empDetails">
+			<map key-type="java.lang.String" value-type="java.lang.String">
+			<entry>
+				<key><value>HK</value></key>
+				<value>CoreJava</value>
+			</entry>
+			<entry key="Murali" value="Oracle"/>
+			<entry key="Ashok">
+				<value>WebService Project</value>
+			</entry>
+			<entry value="Angular">
+			<key><value>Sudhakar</value></key>
+			</entry>
+			<entry key="Natraz"><value>Framework</value></entry>
+
+			</map>
+		</property>
+		<property name="date">
+			<map key-type="java.lang.String" value-type="java.util.Date">
+				<entry key="SysDate" value-ref="sysDate"/>
+				<entry key="Dob" value-ref="dob"></entry>
+			</map>
+		</property>
+	</bean>
+</beans>
+	
+
