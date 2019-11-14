@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<bean id="infinixMob" class="com.biss.beans.MobileInfo" abstract="true">
+	<constructor-arg name="compName" value="infinix"/>
+	<constructor-arg name="series" value="Note"/>
+</bean>
+<bean id="mob1" class="com.biss.beans.MobileInfo" parent="infinixMob">
+	<constructor-arg name="modleNo" value="8"/>
+	<constructor-arg name="scrnSize" value="6.5"/>
+	<constructor-arg name="ownerName" value="Gyana"/>
+	<constructor-arg name="price" value="95455"/>
+</bean>
+</beans>
