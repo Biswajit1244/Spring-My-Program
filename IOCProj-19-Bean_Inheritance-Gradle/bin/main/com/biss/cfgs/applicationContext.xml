@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<bean id="infinixMob" class="com.biss.beans.MobileInfo" abstract="true">
+	<property name="compName" value="Infinix"/>
+	<property name="series" value="Hot"/>
+</bean>
+<bean id="mob1" class="com.biss.beans.MobileInfo" parent="infinixMob">
+	<property name="scrnSize" value="6.0f"/>
+	<property name="modleNo" value="s3"/>
+	<property name="ownerName" value="Biswa"/>
+	<property name="price" value="7999.00f"/>
+</bean>
+<bean id="mob2" class="com.biss.beans.MobileInfo" parent="infinixMob">
+	<property name="modleNo" value="S4"/>
+	<property name="scrnSize" value="6.3"/>
+	<property name="ownerName" value="sameer"/>
+	<property name="price" value="8999.0f"/>
+</bean>
+</beans>
