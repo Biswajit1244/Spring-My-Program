@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="ac" class="com.biss.beans.A">
+		<property name="b" ref="bc"></property>
+	</bean>
+	
+	<bean id="bc" class="com.biss.beans.B">
+		<property name="a" ref="ac"></property>
+	</bean>
+	<!-- we can't create cyclic dependency through Constructor 
+	injection. Because when we are going to create target bean class obj 
+	it need dependent class obj for that container try to create to 
+	crearte dependent class obj but it's need target class obj to create
+	obj that is not available so it show error -->
+	<!-- We can solve this problem by creating construction and
+	stter injection cyclic dependency -->
+</beans>
