@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean id="bat" class="com.biss.beans.Bat"/>
+	<bean id="cricter" class="com.biss.beans.Cricketer">
+		<property name="beanId">
+			<idref bean="bat"/><!-- it gives the id as value to the property
+										if that id is available -->
+		</property>
+	</bean>
+
+</beans>
