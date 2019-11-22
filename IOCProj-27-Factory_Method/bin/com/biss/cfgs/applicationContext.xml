@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- static factory method creating obj of same class obj -->
+	<bean id="cal" class="java.util.Calendar" factory-method="getInstance"/>
+	
+	<bean id="clazz" class="java.lang.Class" factory-method="forName">
+		<constructor-arg value="java.util.Date"/>
+	</bean>
+	<!-- Static factory method Creating obj of diff class obj -->
+	<bean id="property" class="java.lang.System" factory-method="getProperties"/>
+	
+	<!-- Instance factory method creating obj of same class -->
+	<bean id="str1" class="java.lang.String" >
+		<constructor-arg value="Hello"/>
+	</bean>
+	<bean id="String" factory-bean="str1" factory-method="concat">
+		<constructor-arg value=" Hii"/>
+	</bean>
+	<!-- Instance factory method creating obj of Different class obj -->
+	<bean id="buffer" class="java.lang.StringBuffer">
+		<constructor-arg value="Hello Biswa"/>
+	</bean>
+	
+	<bean id="String1" class="java.lang.String" factory-bean="buffer" factory-method="substring">
+		<constructor-arg value="6"/>
+		<constructor-arg value="11"/>
+	</bean>
+</beans>
