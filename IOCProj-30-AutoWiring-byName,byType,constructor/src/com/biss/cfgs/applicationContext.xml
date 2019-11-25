@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- Dependent class obj configuration -->
+	<bean id="tp" class="com.biss.beans.TravlePlaces" >
+		<property name="place" >
+			<array>
+				<value>Goa</value >
+				<value>Simla</value>
+				<value>Maldip</value>
+				<value>Ooty</value>
+			</array>
+		</property>
+	</bean>
+	<bean id="tp2" class="com.biss.beans.TravlePlaces">
+		<property name="place" >
+			<array>
+				<value>Himalaya</value>
+				<value>Jaipur</value>
+				<value>Bankok</value>
+				<value>Ooty</value>
+			</array>
+		</property>
+	</bean>
+	<!-- Target class obj configuration -->
+	<bean id="TA" class="com.biss.beans.TravleAgency" autowire="constructor">
+	<!-- If autowire="byName" then target class properties name and dependent
+		bean id name must be matched .Here no ambiguity problem occur-->
+	<!-- If autowire="byType" then target bean class property type and
+			dependent bean type must be same or compatible..
+		it Show ambiguity problem if two or more same type value is configured
+		To resolve this problem enable primary="true" in that bean tag
+		which value you want to inject-->	
+		<constructor-arg name="agencyName" value="MakeMyTrip"/>
+		<constructor-arg name="tp" ref="tp2"/>
+	</bean>
+
+</beans>
