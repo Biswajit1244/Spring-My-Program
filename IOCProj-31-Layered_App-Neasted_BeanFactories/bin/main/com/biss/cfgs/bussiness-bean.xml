@@ -5,12 +5,18 @@
 	<!-- Configure datasource  -->
 	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-  		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+  		<!-- <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/> -->
   		<property name="username" value="scott"/>
   		<property name="password" value="djbravo"/>
 	</bean>
+	<bean id="dshikari" class="com.zaxxer.hikari.HikariDataSource" parent="ds">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+		<property name="maximumPoolSize" value="100"/>
+		<property name="idleTimeout" value="2000"/>
+		<property name="connectionTimeout" value="30000"/>
+	</bean>
 	<bean id="dao" class="com.biss.DAO.EmpoyeeDAOimpl">
-  		<constructor-arg ref="ds"/>
+  		<constructor-arg ref="dshikari"/>
   	</bean>
   	<!-- Service -->
   	<bean id="servc" class="com.biss.service.EmployeeServiceImpl">
